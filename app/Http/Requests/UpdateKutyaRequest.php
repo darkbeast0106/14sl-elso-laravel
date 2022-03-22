@@ -13,7 +13,7 @@ class UpdateKutyaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateKutyaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "nev" => "string|max:50",
+            "eletkor" => "integer|min:0|max:18",
+            "fajta" => "string|max:50",
+            "gazda_neve" => "string|max:50",
         ];
     }
 }

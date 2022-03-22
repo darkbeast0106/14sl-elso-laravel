@@ -13,7 +13,7 @@ class StoreKutyaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreKutyaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "nev" => "required|string|max:50",
+            "eletkor" => "required|integer|min:0|max:18",
+            "fajta" => "required|string|max:50",
+            "gazda_neve" => "required|string|max:50",
         ];
     }
 }
