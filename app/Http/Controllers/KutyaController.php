@@ -15,7 +15,8 @@ class KutyaController extends Controller
      */
     public function index()
     {
-        //
+        $kutyak = Kutya::all();
+        return view('kutya.index', ['kutyak' => $kutyak] );
     }
 
     /**
@@ -25,7 +26,7 @@ class KutyaController extends Controller
      */
     public function create()
     {
-        //
+        return view('kutya.create');
     }
 
     /**
@@ -36,7 +37,10 @@ class KutyaController extends Controller
      */
     public function store(StoreKutyaRequest $request)
     {
-        //
+        $kutya = new Kutya();
+        $kutya->fill($request->all());
+        $kutya->save();
+        return redirect()->route('kutya.index');
     }
 
     /**
@@ -47,7 +51,7 @@ class KutyaController extends Controller
      */
     public function show(Kutya $kutya)
     {
-        //
+        return view('kutya.show', ['kutya' => $kutya]);
     }
 
     /**
@@ -58,7 +62,7 @@ class KutyaController extends Controller
      */
     public function edit(Kutya $kutya)
     {
-        //
+        return view('kutya.edit', ['kutya' => $kutya]);
     }
 
     /**
@@ -70,7 +74,9 @@ class KutyaController extends Controller
      */
     public function update(UpdateKutyaRequest $request, Kutya $kutya)
     {
-        //
+        $kutya->fill($request->all());
+        $kutya->save();
+        return redirect()->route('kutya.show', $kutya->id);
     }
 
     /**
@@ -81,6 +87,7 @@ class KutyaController extends Controller
      */
     public function destroy(Kutya $kutya)
     {
-        //
+        $kutya->delete();
+        return redirect()->route('kutya.index');
     }
 }
