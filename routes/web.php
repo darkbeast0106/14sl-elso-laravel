@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KutyaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('/kutya', KutyaController::class);
+
+Auth::routes();
