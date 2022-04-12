@@ -16,7 +16,7 @@ class KutyaController extends Controller
     public function index()
     {
         $kutyak = Kutya::all();
-        return view('kutya.index');
+        return view('kutya.index', ['kutyak' => $kutyak]);
     }
 
     /**
@@ -51,7 +51,7 @@ class KutyaController extends Controller
      */
     public function show(Kutya $kutya)
     {
-        //
+        return view('layouts.app');
     }
 
     /**
