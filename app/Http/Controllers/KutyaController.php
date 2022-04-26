@@ -26,7 +26,7 @@ class KutyaController extends Controller
      */
     public function create()
     {
-        //
+        return view('kutya.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class KutyaController extends Controller
      */
     public function show(Kutya $kutya)
     {
-        return view('layouts.app');
+        return view('kutya.show', ['kutya' => $kutya]);
     }
 
     /**
@@ -62,7 +62,7 @@ class KutyaController extends Controller
      */
     public function edit(Kutya $kutya)
     {
-        //
+        return view('kutya.edit', ['kutya' => $kutya]);
     }
 
     /**
